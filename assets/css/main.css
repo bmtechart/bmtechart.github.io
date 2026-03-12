@@ -1,19 +1,72 @@
 /* Default desktop styling */
 
-/* Navbar Container */
-.navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	background-color: #333;
-	color: white;
-	padding: 10px 20px;
+:root {
+	/* Colours */
+	color-scheme: light dark;
+
+	/* Light Mode */
+	--light-primary: #E8F1f2;
+	--light-secondary: #001A23;
+	--light-secondary-2: #31493c;
+	--light-accent: #7A9E7E;
+	
+	/* Dark Mode */
+	--dark-primary: #001A23;
+	--dark-secondary: #E8F1F2;
+	--dark-secondary-2: #7A9E7E;
+	--dark-accent: #B3EFB2;
+
+
+	/* Fonts */
+	--font-heading: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+	--font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.logo {
+body {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Wrapper -- Contains all content for the main page. */
+
+.background {
+	transform: scale(1.0);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100;
+	z-index: -1;
+
+}
+
+/* Navbar */
+.navbar-wrapper {
+	position: fixed;
+	display: flex;
+	justify-content: flex-start;
+	background-color: light-dark(var(--light-primary), var(--dark-primary));
+	color: light-dark(var(--light-secondary), var(--dark-secondary));
+	top:0;
+	right:0;
+	width: 100%;
+	padding: 10px -100px;
+}
+
+
+.logo-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
 	font-size: 1.5rem;
 	text-decoration: none;
-	color: white;
+	color: light-dark(var(--light-secondary), var(--dark-secondary));
+	background-color: light-dark(var(--light-primary), var(--dark-primary));
 }
 
 .nav-links {
@@ -52,11 +105,12 @@
 /* body should fill screen both on mobile and screen */
 #demo-reel {
 	position: fixed;
+	z-index: -1;
 	right: 0;
 	bottom: 0;
-	min-width: 100%;
+	min-width: 100%; 
 	min-height: 100%;
-
+	filter: brightness(25%);
 }
 
 
