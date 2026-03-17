@@ -4,35 +4,69 @@
 		<title>Brian Murphy Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		
+		<!-- Fonts & Colours -->
+		<link rel="stylesheet" href="assets/css/theme.css" />
+
+		<!-- Animations & Blends -->
+		<link rel="stylesheet" href="assets/css/animations.css" />
+
+		<!-- Desktop/Mobile Layout -->
+		<link rel="stylesheet" href="assets/css/layout.css" />
+
+		<!-- Portfolio Widgets -->
+		<link rel="stylesheet" href="assets/css/portfolio.css"/>
 
 		<!-- Font Imports -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+	
+		<script src="assets/js/main.js" defer></script>
+		
 	</head>
 	
 
+	<header>
 
 
-	<body>
+		<div class="hero-content">
+			<div class="hero-slide active" id="reel">
+				<video autoplay loop muted id="hero-video">
+					<source src="assets/reels/test-video.mp4">
+				</video>
+			</div>
+			<div class="hero-slide" id="slide-portfolio">
+				<h1>My Portfolio</h1>
+				<p>Portfolio preview content</p>
+			</div>
 
-		<div class="navbar-wrapper">
-			<div class="logo-wrapper">
-				<h1>Brian Murphy</h1>
-				<h2>Technical Artist</h2>
+			<div class="hero-slide" id="slide-contact">
+				<h1>Contact Me</h1>
+				<p>Reach out via email or social media</p>
 			</div>
 		</div>
-
-		<!-- Play demo reel in background of landing page -->
-		 <!-- ToDo: Add buttons to swap reels. -->
-		<video playsinline autoplay muted loop id="demo-reel">
-			<source src="assets/reels/test-video.mp4">
-		</video>
+		
+	</header>
 
 
 
 
+	<!-- Navbar inside header for overlay -->
+	<div class="nav-background">
+		<div class="navbar-wrapper">
+		<div class="logo-wrapper">
+			<h1>Brian Murphy</h1>
+			<p>Technical Artist</p>
+		</div>
 
-	</body>
+		<div class="nav-links-wrapper">
+			<ul class="nav-links" id="navLinks">
+				<li><a href="#home" id="btn-home" data-target="reel">Home</a></li>
+				<li><a href="#portfolio" id="btn-about" data-target="slide-contact">Contact</a></li>
+				<li><a href="#contact" id="btn-portfolio" data-target="slide-portfolio">Portfolio</a></li>
+			</ul>
+		</div>
+		</div>
+	</div>
 </html>

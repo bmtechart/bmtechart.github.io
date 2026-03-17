@@ -1,0 +1,188 @@
+/* Default desktop styling */
+
+:root {
+	--nav-height: 72px;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+
+/* Hero content above video */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+
+/* Hero section ends at the navbar */
+#reel {
+  position: relative;
+  width: 100vw;
+  height: calc(100vh - var(--nav-height)); /* hero fills screen minus navbar */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Video fills hero exactly, no clipping */
+#hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills container without stretching */
+  z-index: 1;
+}
+
+/* Header & hero */
+
+header {
+  position: relative;      /* allows navbar overlay */
+  width: 100%;
+  min-height: 100vh;
+}
+
+.full-page-section {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-margin-top: var(--nav-height);
+}
+
+/* Navbar overlay at bottom of header */
+.nav-background {
+  position: absolute;
+  bottom: 0;           /* start at bottom of header */
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  background-color: light-dark(rgba(var(--light-primary), 0.6), rgba(var(--dark-primary), 0.6)); /* semi-transparent */
+  backdrop-filter: blur(10px);
+  z-index: 10000;
+  transition: all 0.3s ease;
+}
+
+/* Navbar sticky state */
+.nav-background.sticky {
+  position: sticky;
+  top: 0;
+  bottom: auto;
+  background-color:  light-dark(rgba(var(--light-primary), 0.9), rgba(var(--dark-primary), 0.9)); /* semi-transparent */
+  backdrop-filter: blur(10px);;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Horizontal container to hold logo and menu buttons */
+.navbar-wrapper {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* Column wrapper for Name and Logo */
+.logo-wrapper {
+	display:flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content: flex-start;
+	color: light-dark(var(--light-secondary), var(--dark-secondary));
+	gap: 0px;
+}
+
+.logo-wrapper h1 {
+	font-size: 1.25rem; /* ~11px */
+	font-weight: 600;
+	margin: 0;
+	line-height: 1.2;
+}
+
+.logo-wrapper p {
+	font-size: 0.7rem;
+	margin: 2px 0 0 0;
+	opacity: 0.65;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: light-dark(var(--light-secondary), var(--dark-secondary));
+  text-decoration: none;
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.25s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+
+/* Container for unordered list of navigation buttons */
+.nav-links-wrapper {
+	justify-content: center;
+	align-content: center;
+	margin: auto;
+	position: relative;
+}
+
+
+/* Slides styling */
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: opacity 0.8s ease;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
