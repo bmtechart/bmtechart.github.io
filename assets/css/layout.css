@@ -10,18 +10,11 @@ body {
 	overflow-x: hidden;
 }
 
-/* Hero content above video */
-.hero-content {
-  position: relative;
-  z-index: 2;
+header {
+  position: relative;      /* allows navbar overlay */
   width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  min-height: 100vh;
 }
-
 
 /* Hero section ends at the navbar */
 #reel {
@@ -34,6 +27,20 @@ body {
   align-items: center;
 }
 
+/* Hero Content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  padding-bottom: var(--nav-height);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
 /* Video fills hero exactly, no clipping */
 #hero-video {
   position: absolute;
@@ -45,26 +52,32 @@ body {
   z-index: 1;
 }
 
-/* Header & hero */
 
-header {
-  position: relative;      /* allows navbar overlay */
+/* Slides styling */
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  min-height: 100vh;
-}
-
-.full-page-section {
-  min-height: 100vh;
-  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  scroll-margin-top: var(--nav-height);
+  text-align: center;
+  transition: opacity 0.8s ease;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* Navbar overlay at bottom of header */
 .nav-background {
-  position: absolute;
+  position: fixed;
   bottom: 0;           /* start at bottom of header */
   left: 0;
   width: 100%;
@@ -72,10 +85,11 @@ header {
   display: flex;
   align-items: center;
   padding: 0 32px;
-  background-color: light-dark(rgba(var(--light-primary), 0.6), rgba(var(--dark-primary), 0.6)); /* semi-transparent */
+  background-color: light-dark(var(--light-primary), var(--dark-primary)); /* semi-transparent */
   backdrop-filter: blur(10px);
   z-index: 10000;
   transition: all 0.3s ease;
+  border-top: 1px solid light-dark(rgba(var(--light-secondary), 0.1), rgba(var(--dark-secondary), 0.1));
 }
 
 /* Navbar sticky state */
@@ -131,6 +145,7 @@ header {
   list-style: none;
   margin: 0;
   padding: 0;
+  margin: 0 auto;
 }
 
 .nav-links li a {
@@ -139,6 +154,7 @@ header {
   position: relative;
   padding: 6px 0;
 }
+
 
 .nav-links li a::after {
   content: "";
@@ -155,7 +171,6 @@ header {
   width: 100%;
 }
 
-
 /* Container for unordered list of navigation buttons */
 .nav-links-wrapper {
 	justify-content: center;
@@ -165,24 +180,3 @@ header {
 }
 
 
-/* Slides styling */
-.hero-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  pointer-events: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  transition: opacity 0.8s ease;
-}
-
-.hero-slide.active {
-  opacity: 1;
-  pointer-events: auto;
-}

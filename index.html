@@ -28,8 +28,6 @@
 	
 
 	<header>
-
-
 		<div class="hero-content">
 			<div class="hero-slide active" id="reel">
 				<video autoplay loop muted id="hero-video">
@@ -37,8 +35,21 @@
 				</video>
 			</div>
 			<div class="hero-slide" id="slide-portfolio">
-				<h1>My Portfolio</h1>
-				<p>Portfolio preview content</p>
+				<div class="portfolio-grid">
+					<div class = "portfolio-item">
+						<img src="assets/images/moss.jpg" alt="Moss" data-url="dummy.html">
+						<div class="portfolio-overlay">
+							<h3>Procedural Moss</h3>
+						</div>
+					</div>
+					
+					<div class = "portfolio-item">
+						<img src="assets/images/rock.jpg" alt="Rock" data-url="dummy.html">
+						<div class="portfolio-overlay">
+							<h3>Procedural Rocks</h3>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<div class="hero-slide" id="slide-contact">
@@ -50,7 +61,12 @@
 	</header>
 
 
-
+	<div class="modal" id="modal">
+		<div class="modal-content">
+			<button class = "modal-close" aria-label="Close">&times;</button>
+			<div id="modalContent"></div>
+		</div>
+	</div>
 
 	<!-- Navbar inside header for overlay -->
 	<div class="nav-background">
