@@ -41,7 +41,6 @@ const items = document.querySelectorAll(".portfolio-item");
 items.forEach(item => {
 	item.addEventListener("click", async () => {
 		const url = item.getAttribute("data-url");
-
         
 		try {
 			const response = await fetch(url);
@@ -80,11 +79,12 @@ document.addEventListener("keydown", (e) => {
 	}
 });
 
-/*
+
 modal.addEventListener("click", (e) => {
-	if (e.target === modal) {
-		modal.classList.remove("show");
-		//modalContent.innerHTML = "";
-	}
+	if (e.target === modalContent) {
+		
+	} else {
+        modal.classList.remove("show");
+		modalContent.innerHTML = "";
+    }
 });
-*/
